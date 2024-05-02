@@ -1,0 +1,12 @@
+memory allocation
+
+memory allocation is the allocating a space in the momory
+
+two types:-
+static memory allocation :- allocating memory at compile time
+dynamic memory allocation :- allocating memory at runtime
+
+
+memory leak
+
+memory allocated but forgt to clean or delete it. it will reduce the performace of our systems or app

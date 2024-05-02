@@ -1,0 +1,22 @@
+Linear ds 
+
+stores datat in a sequential ordr. allowing for easy inisertion and deletion operation.
+eg: array, linked list,  queues
+
+Non linear ds
+
+storee data in hierarchical or interconnected manner allowing more complex relation between data element
+eg :- trees, graphs and hash tables
+
+
+linear ds:-
+array :- collection of elements of same type stored in a contigous memory location 
+linked list:- collection of elements linked together by pointers, allowing for dynamic insertion and deletion
+queue :- (fifo)stuture where elements are added at the end and removed from theh begining
+stack :- (lifo)stuture where elements are added and removed from the from the top
+
+
+non_linear
+tree :- 
+graph
+hash table

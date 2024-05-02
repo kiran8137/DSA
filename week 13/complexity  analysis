@@ -1,0 +1,5 @@
+is the process of evaluating the performance of an algorithm in terms of the input size. involves measuring how the running time or memory usage ofo a algorith scales with the size of the input data.
+
+2 types:-
+Time complexity:- refers to the amount ofo time taken by an algorithm to exucute 
+space complexity :- refers to the amount of memory used by a algorithm to execute.
