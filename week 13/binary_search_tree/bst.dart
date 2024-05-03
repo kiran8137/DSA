@@ -140,8 +140,8 @@ void main() {
 
   // tree.contains(30);
   //tree.inorder();
-  //tree.preorder();
+  tree.preorder();
  //tree.posteorder();
 
- print(tree.getNearest(20));
+ //print(tree.getNearest(20));
 }
