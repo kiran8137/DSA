@@ -1,89 +1,132 @@
 
+class Node {
+  int data;
+  Node? left, right;
 
-// class Node{
-//   Node? next;
-//   int data;
-
-//   Node(this.data);
-// }
-
-// class singly{
-
-//   Node? head;
-//   Node? tail;
-
-//   createnode(int data){
-//     Node newnode = Node(data);
-//     if(head == null){
-//       head = newnode;
-//     }else{
-//       tail?.next = newnode;
-//     }
-
-//     tail = newnode;
-//   }
-
-//   sample(){
-       
-//        Node? temp = head;
-//        Node? same = head;
-//        while(temp!=null ){
-//         if(temp == same){
-//           print('its cycling');
-//         }
-//          temp = temp.next;
-//        }
-
-//        print('its not cycling');
-//   }
-
-
-//   display(){
-//     if(head == null){
-//       print('no list is there');
-//     }else{
-//       Node? temp = head;
-//       while(temp!=null){
-//         print(temp.data);
-//         temp = temp.next;
-//       }
-//     }
-//   }
-// }
-
-// void main(){
-//   singly list = singly();
-
-//   list.createnode(10);
-//   list.createnode(20);
-//   list.createnode(230);
-//   list.createnode(240);
-//   list.display();
-//   list.sample();
-
-// }
-
-void main(){
- List<int> list = [2,4,2,10,4,8,2];
-
- var count = 0;
-
-//  for(var i=0;i<list.length;i++){
-//   count = 0;
-//   for(var j=0;j<list.length;j++){
-//     if(list[i]==list[j]){
-//       count++;
-//     }
-//   }
-//   if(count==0){
-//     print(list[i]);
-//     break;
-//   }
-//  }
-var x=0;
-for(var i=0;i<list.length;i++){
-  x=x^list[i];
-
+  Node(this.data);
 }
-print(x);
+
+class binarysearchtree {
+  Node? root;
+
+  insertion(int data) {
+    Node newnode = Node(data);
+
+    Node? currentnode = root;
+    if (root == null) {
+      root = newnode;
+      return;
+    }
+
+    while (true) {
+      if (data < currentnode!.data) {
+        if (currentnode.left == null) {
+          currentnode.left = newnode;
+          break;
+        } else {
+          currentnode = currentnode.left;
+        }
+      } else {
+        if (currentnode.right == null) {
+          currentnode.right = newnode;
+          break;
+        } else {
+          currentnode = currentnode.right;
+        }
+      }
+    }
+  }
+
+  contains(int data) {
+    Node? currentnode = root;
+    while (currentnode != null) {
+      if (data < currentnode.data) {
+        currentnode = currentnode.left;
+      } else if (data > currentnode.data) {
+        currentnode = currentnode.right;
+      } else {
+        return print(true);
+      }
+    }
+    return print(false);
+  }
+
+  //inorder
+
+  inorder() {
+    inorderhelper(root);
+  }
+   inorderhelper(Node? node) {
+    if (node != null) {
+      inorderhelper(node.left);
+      print(node.data);
+      inorderhelper(node.right);
+    }
+  }
+  //preorder
+  preorder() {
+    preorderhelper(root);
+  }
+  preorderhelper(Node? node) {
+    if (node == null) {
+      return;
+    }
+    print(node.data);
+    preorderhelper(node.left);
+    preorderhelper(node.right);
+  }
+  //postorder
+  posteorder() {
+    postorderhelper(root);
+  }
+  postorderhelper(Node? node) {
+    if (node == null) {
+      return;
+    }
+    postorderhelper(node.left);
+    postorderhelper(node.right);
+    print(node.data);
+  }
+
+  int? getNearest(int target) {
+    Node? current = root;
+    int? nearest = current?.data;
+
+    while (current != null) {
+      if ((target - nearest!).abs() > (target - current.data)) {
+        nearest = current.data;
+      }
+      if (target < current.data) {
+        current = current.left;
+      } else if (target > current.data) {
+        current = current.right;
+      } else {
+        break;
+      }
+    }
+
+    return nearest;
+  }
+  // display() {
+  //   print(this.root);
+  // }
+}
+
+void main() {
+  binarysearchtree tree = binarysearchtree();
+  tree.insertion(10);
+  tree.insertion(5);
+  tree.insertion(15);
+  tree.insertion(3);
+  tree.insertion(18);
+
+  tree.insertion(12);
+  tree.insertion(8);
+
+  tree.contains(30);
+  //tree.inorder();
+  // tree.preorder();
+  //tree.posteorder();
+
+  //print(tree.getNearest(20));
 }

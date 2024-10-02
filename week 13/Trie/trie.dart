@@ -1,6 +1,7 @@
 //prefix
 
 import 'dart:collection';
+import 'dart:ffi';
  
 
 
@@ -34,6 +35,8 @@ class Trie{
   }
 
 
+
+
 bool contains(String str){
   TrieNode node = root;
   for(var i=0;i<str.length;i++){
@@ -46,6 +49,8 @@ bool contains(String str){
 
   return true;
 }
+
+ 
 
  
 

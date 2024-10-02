@@ -65,7 +65,10 @@ void main(){
   Trie t = Trie();
 
   t.insert("listonfermi");
+  t.insert("suresh varma");
+  t.insert("varma");
+  t.insert("suresh");
   
-  //print(t.printallvalues());
-  print(t.autocomplete('li'));
+  print(t.printallvalues());
+  //print(t.autocomplete('li'));
 }

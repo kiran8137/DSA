@@ -55,72 +55,56 @@ class binarysearchtree {
   inorder() {
     inorderhelper(root);
   }
-
-  inorderhelper(Node? node) {
+   inorderhelper(Node? node) {
     if (node != null) {
       inorderhelper(node.left);
       print(node.data);
       inorderhelper(node.right);
     }
   }
-
-  
   //preorder
-
-  preorder(){
+  preorder() {
     preorderhelper(root);
   }
-
-  preorderhelper(Node? node){
-    if(node==null){
-       return;
-    }
-      print(node.data);
-      preorderhelper(node.left);
-      preorderhelper(node.right);
-    
-  }
-
-  //postorder
-
- posteorder(){
-    postorderhelper(root);
-  }
-
-  postorderhelper(Node? node){
-    if(node==null){
+  preorderhelper(Node? node) {
+    if (node == null) {
       return;
     }
-      
-      postorderhelper(node.left);
-      postorderhelper(node.right);
-      print(node.data);
-    
+    print(node.data);
+    preorderhelper(node.left);
+    preorderhelper(node.right);
+  }
+  //postorder
+  posteorder() {
+    postorderhelper(root);
+  }
+  postorderhelper(Node? node) {
+    if (node == null) {
+      return;
+    }
+    postorderhelper(node.left);
+    postorderhelper(node.right);
+    print(node.data);
   }
 
- int? getNearest(int target){
+  int? getNearest(int target) {
     Node? current = root;
     int? nearest = current?.data;
 
-    while(current != null){
-      
-
-      if((target - nearest!).abs() > (target - current.data)){
+    while (current != null) {
+      if ((target - nearest!).abs() > (target - current.data)) {
         nearest = current.data;
       }
-      if(target < current.data){
+      if (target < current.data) {
         current = current.left;
-      }
-      else if(target > current.data){
+      } else if (target > current.data) {
         current = current.right;
-      }else{
+      } else {
         break;
       }
     }
 
     return nearest;
-
-
   }
   // display() {
   //   print(this.root);
@@ -138,10 +122,10 @@ void main() {
   tree.insertion(12);
   tree.insertion(8);
 
-  // tree.contains(30);
+  tree.contains(30);
   //tree.inorder();
-  tree.preorder();
- //tree.posteorder();
+  // tree.preorder();
+  //tree.posteorder();
 
- //print(tree.getNearest(20));
+  //print(tree.getNearest(20));
 }

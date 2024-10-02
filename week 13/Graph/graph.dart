@@ -60,6 +60,14 @@ class Graph{
 
    }
 
+
+
+
+
+
+
+
+
     void dfs(int vertex){
       if(graph.containsKey(vertex)){
         Set<int> visited = {};
@@ -104,12 +112,12 @@ void main(){
 
  
   graph.display();
-    print('------');
+  //   print('------');
   //  graph.remove(3);
   // graph.display();
 
-//graph.bfs(10);
-graph.dfs(10);
+graph.bfs(10);
+//graph.dfs(10);
  
 
 }
